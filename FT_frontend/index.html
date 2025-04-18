@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FutureTrade Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.0.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>📈 FutureTrade Simulation</h1>
+      <p class="subheading">Testing phase Lebron gimme luck</p>
+    </header>
+
+    <main>
+      <section class="market-data-panel">
+        <div class="ticker-info">
+          <h2 id="tickerSymbol">AAPL</h2>
+          <div class="price-display">
+            <span id="currentPrice">$0.00</span>
+            <span id="priceChange" class="neutral">+0.00%</span>
+          </div>
+        </div>
+        <div class="timeframe-controls">
+          <button class="timeframe-btn active" data-timeframe="1D">1D</button>
+          <button class="timeframe-btn" data-timeframe="1W">1W</button>
+          <button class="timeframe-btn" data-timeframe="1M">1M</button>
+          <button class="timeframe-btn" data-timeframe="1Y">1Y</button>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <div class="chart-controls">
+          <select id="chartType">
+            <option value="line">Line</option>
+            <option value="candlestick">Candlestick</option>
+          </select>
+          <button id="addSMA">Add SMA(20)</button>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="stockChart"></canvas>
+        </div>
+      </section>
+
+      <section class="control-panel">
+        <div class="controls">
+          <select id="stockSelector">
+            <option value="AAPL">Apple (AAPL)</option>
+            <option value="TSLA">Tesla (TSLA)</option>
+            <option value="SPY">S&P 500 (SPY)</option>
+          </select>
+          <button id="loadBtn">🔄 Load</button>
+          <button id="nextDayBtn">▶ Next Day</button>
+          <button id="fastForwardBtn">⏩ 10 Days</button>
+        </div>
+      </section>
+
+      <!-- Inserted timeframe tabs panel -->
+      <section class="timeframe-panel">
+        <div class="timeframe-tabs">
+          <button class="timeframe-btn active" data-timeframe="1Y">1Y</button>
+          <button class="timeframe-btn" data-timeframe="1M">1M</button>
+          <button class="timeframe-btn" data-timeframe="1W">1W</button>
+        </div>
+      </section>
+
+      <!-- Replaced stats panel -->
+      <section class="stats-panel">
+        <div class="price-display">
+          <span id="currentPrice">$0.00</span>
+          <span id="priceChange" class="neutral">+0.00%</span>
+        </div>
+        <div class="day-counter" id="dayCounter">Day 0/365</div>
+      </section>
+
+      <section class="status-panel">
+        <div id="loading">Loading...</div>
+        <div id="error" class="error-alert"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html
+

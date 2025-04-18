@@ -1,0 +1,246 @@
+:root {
+    --bg-dark: #131722;
+    --bg-darker: #0d1017;
+    --card-bg: #1e222d;
+    --text-light: #d1d4dc;
+    --text-lighter: #ffffff;
+    --primary: #2962FF;
+    --positive: #26A69A;
+    --negative: #EF5350;
+    --neutral: #787B86;
+    --border: #09ff00;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 1rem;
+    line-height: 1.6;
+  }
+  
+  .app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .app-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .app-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--text-lighter);
+  }
+  
+  .subheading {
+    font-size: 0.9rem;
+    color: var(--neutral);
+  }
+  
+  .market-data-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+  }
+  
+  .ticker-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .price-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+  }
+
+  #currentPrice {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-lighter);
+  }
+
+  #priceChange {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  #priceChange.positive {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--positive);
+  }
+
+  #priceChange.negative {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--negative);
+  }
+
+  .day-counter {
+    color: var(--neutral);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .timeframe-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .timeframe-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-light);
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .timeframe-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+
+  .chart-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .chart-wrapper {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    height: 450px;
+    border: 1px solid var(--border);
+  }
+
+  .control-panel .controls {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  button, select {
+    padding: 0.6rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+
+  select {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-light);
+  }
+
+  .stats-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-lighter);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--neutral);
+  }
+
+  #loading {
+    display: none;
+    padding: 1rem;
+    text-align: center;
+    color: var(--neutral);
+  }
+
+  .error-alert {
+    display: none;
+    padding: 1rem;
+    background: var(--negative);
+    color: white;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .stats-panel {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .market-data-panel {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .timeframe-controls {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .timeframe-btn {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+/* Add these new styles at the bottom */
+.timeframe-panel {
+  margin: 1rem 0;
+}
+
+.timeframe-tabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.timeframe-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.timeframe-btn.active {
+  background: var(--primary);
+  color: white;
+}
